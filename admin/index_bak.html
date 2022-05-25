@@ -1,0 +1,229 @@
+
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <div class="nav-link">
+              <div class="user-wrapper">
+                <div class="profile-image">
+                  <img src="images/faces/face1.jpg" alt="profile image">
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name"><?php echo $_SESSION['name']; ?></p>
+                  <div>
+                    <small class="designation text-muted">Manager</small>
+                    <span class="status-indicator online"></span>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="menu-icon mdi mdi-television"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+   <!--        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-content-copy"></i>
+              <span class="menu-title">Posts</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
+                </li>
+              </ul>
+            </div>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="pages/forms/basic_elements.html">
+              <i class="menu-icon mdi mdi-email"></i>
+              <span class="menu-title">Posts</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/charts/chartjs.html">
+              <i class="menu-icon mdi mdi-account"></i>
+              <span class="menu-title">Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/tables/basic-table.html">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Categories</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/icons/font-awesome.html">
+              <i class="menu-icon mdi mdi-comment-outline"></i>
+              <span class="menu-title">Comments</span>
+            </a>
+          </li>
+    <!-- <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-restart"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/samples/login.html"> Login </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/samples/register.html"> Register </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
+                </li>
+              </ul>
+            </div>
+          </li> -->
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+        <!--   <div class="row purchace-popup">
+          
+        </div> -->
+        <div class="row">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+              <div class="card-body">
+                <div class="clearfix">
+                  <div class="float-left">
+                    <i class="mdi mdi-cube text-danger icon-lg"></i>
+                  </div>
+                  <div class="float-right">
+                    <p class="mb-0 text-right">Verified Post</p>
+                    <div class="fluid-container">
+                      <h3 class="font-weight-medium text-right mb-0">$65,650</h3>
+                    </div>
+                  </div>
+                </div>
+                <p class="text-muted mt-3 mb-0">
+                  <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> Total Verified Post
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+              <div class="card-body">
+                <div class="clearfix">
+                  <div class="float-left">
+                    <i class="mdi mdi-receipt text-warning icon-lg"></i>
+                  </div>
+                  <div class="float-right">
+                    <p class="mb-0 text-right">Request Post</p>
+                    <div class="fluid-container">
+                      <h3 class="font-weight-medium text-right mb-0">3455</h3>
+                    </div>
+                  </div>
+                </div>
+                <p class="text-muted mt-3 mb-0">
+                  <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Total Request Post
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+              <div class="card-body">
+                <div class="clearfix">
+                  <div class="float-left">
+                    <i class="mdi mdi-poll-box text-success icon-lg"></i>
+                  </div>
+                  <div class="float-right">
+                    <p class="mb-0 text-right">Seller Account</p>
+                    <div class="fluid-container">
+                      <h3 class="font-weight-medium text-right mb-0">5693</h3>
+                    </div>
+                  </div>
+                </div>
+                <p class="text-muted mt-3 mb-0">
+                  <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> Total Seller Account
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+              <div class="card-body">
+                <div class="clearfix">
+                  <div class="float-left">
+                    <i class="mdi mdi-account-location text-info icon-lg"></i>
+                  </div>
+                  <div class="float-right">
+                    <p class="mb-0 text-right">User Account</p>
+                    <div class="fluid-container">
+                      <h3 class="font-weight-medium text-right mb-0">246</h3>
+                    </div>
+                  </div>
+                </div>
+                <p class="text-muted mt-3 mb-0">
+                  <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Normal User Account
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+
+        
+      </div>
+      <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+      <footer class="footer">
+        <div class="container-fluid clearfix">
+          <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
+            <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i>
+            </span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="vendors/js/vendor.bundle.addons.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/misc.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="js/dashboard.js"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>
