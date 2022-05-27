@@ -4,7 +4,7 @@ class manageDatabase {
 
 	protected $conn;
 	protected $servername = 'localhost';
-	protected $hostname = 'capstonedb';
+	protected $hostname = 'fashionwear';
 	protected $username = 'root';
 	protected $password = '@ven2017';
 
