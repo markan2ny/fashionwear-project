@@ -125,7 +125,7 @@ $data = $init->getSpecific(
 <br>
 <br>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$(document).ready(function() {
 		// AddInput();
 		$('#myTable').DataTable({
@@ -175,7 +175,7 @@ $data = $init->getSpecific(
 		})
 
 	});
-</script>
+</script> -->
 
 <?php include_once('includes/footer_section.php'); ?>
 <?php include_once('includes/footer.php'); ?>

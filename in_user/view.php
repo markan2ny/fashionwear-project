@@ -345,52 +345,52 @@ $fetchUser = $init->getSpecific(array($_SESSION['user_id']), "SELECT * FROM user
 </div>
 <br>
 <script type="text/javascript">
-	$(document).ready(function(){
-		sendMessage();
+	// $(document).ready(function(){
+	// 	sendMessage();
 
-		function sendMessage(){
-			$(document).on('submit','form#formMessage', function(e){
-				e.preventDefault();
-				loader('show');
-				$.ajax({
-					url: 'libs/send.php',
-					method: 'POST',
-					data: $(this).serialize(),
-					dataType: 'json',
-					beforeSend:function(){
-						$('#submit').text('Please wait.....');
-					},
-					success:function(data){
-						if(!data.error){
+	// 	function sendMessage(){
+	// 		$(document).on('submit','form#formMessage', function(e){
+	// 			e.preventDefault();
+	// 			loader('show');
+	// 			$.ajax({
+	// 				url: 'libs/send.php',
+	// 				method: 'POST',
+	// 				data: $(this).serialize(),
+	// 				dataType: 'json',
+	// 				beforeSend:function(){
+	// 					$('#submit').text('Please wait.....');
+	// 				},
+	// 				success:function(data){
+	// 					if(!data.error){
 
-							setTimeout(function(){
-								$('#submit').text('Submit Message');
-								$.alert({
-									title: 'Message',
-									content: data.success
-								});
-								$('#formMessage')[0].reset();
-								loader('hide');
-							},3000);
-						}
-						else {
+	// 						setTimeout(function(){
+	// 							$('#submit').text('Submit Message');
+	// 							$.alert({
+	// 								title: 'Message',
+	// 								content: data.success
+	// 							});
+	// 							$('#formMessage')[0].reset();
+	// 							loader('hide');
+	// 						},3000);
+	// 					}
+	// 					else {
 
-							setTimeout(function(){
-								$('#submit').text('Submit Message');
-								$.alert({
-									title: 'Message',
-									content: data.error
-								});
-								loader('hide');
-							},3000);
-						}
-					}
-				});
+	// 						setTimeout(function(){
+	// 							$('#submit').text('Submit Message');
+	// 							$.alert({
+	// 								title: 'Message',
+	// 								content: data.error
+	// 							});
+	// 							loader('hide');
+	// 						},3000);
+	// 					}
+	// 				}
+	// 			});
 
-			})
-		}
+	// 		})
+	// 	}
 
-	})
+	// })
 </script>
 
 <?php include_once('includes/footer_section.php'); ?>

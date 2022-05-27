@@ -90,8 +90,14 @@
   </div>
 </div>
 
+
+
+
+
+<?php include_once('includes/footer.php'); ?>
+
 <script type="text/javascript">
-  $(document).ready(function() {
+  $(function() {
 
     $(document).on('submit', 'form', function(e) {
       e.preventDefault();
@@ -119,14 +125,12 @@
               alert('Account has been blocked');
               loader('hide');
             }
+          } else {
+            alert(data.error)
+            loader('hide');
           }
         }
       });
     });
   });
 </script>
-
-
-
-
-<?php include_once('includes/footer.php'); ?>

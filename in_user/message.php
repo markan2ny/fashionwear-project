@@ -49,7 +49,7 @@ $init = new manageFunction;
 	</div>
 </div>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$(document).ready(function(){
 		$(document).on('submit', 'form#reply', function(e){
 			e.preventDefault();
@@ -72,7 +72,7 @@ $init = new manageFunction;
 
 		})
 	})
-</script>
+</script> -->
 
 
 <?php include_once('includes/footer.php'); ?>

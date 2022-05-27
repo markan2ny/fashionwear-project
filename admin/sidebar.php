@@ -35,12 +35,12 @@
             <span class="menu-title">View all post</span>
           </a>
         </li> -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="account.php">
             <i class="menu-icon mdi mdi-account"></i>
             <span class="menu-title">Manage Account</span>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="product.php">
             <i class="menu-icon mdi mdi-cart"></i>

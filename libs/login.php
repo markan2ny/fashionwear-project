@@ -24,7 +24,7 @@ if( count($login) > 0 ) {
 			$_SESSION['name'] = $row->name;
 		}
 	} else {
-		echo json_encode(['message' => 'Invalid Credetials']);
+		echo json_encode(['error' => 'Invalid Credetials']);
 	}
 } else {
 	echo json_encode(['error' => 'Invalid Credetials']);
