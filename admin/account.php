@@ -67,6 +67,3 @@ $fetchAcct = $init->getData("SELECT * FROM users ORDER BY user_id DESC");
 </div>
 <!-- container-scroller -->
 <?php include_once 'includes/footer.php'; ?>
-<script>
-	$('#mytable').dataTable();
-</script>

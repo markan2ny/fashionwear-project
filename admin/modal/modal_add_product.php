@@ -36,7 +36,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="save" class="btn btn-primary">Save Product</button>
+                        <button type="button" id="submit" class="btn btn-primary">Save Product</button>
                     </div>
                 </form>
             </div>
@@ -47,29 +47,17 @@
 <script>
     $(function() {
 
-        $('#save').click(function(e) {
+        $('#submit').click(function(e) {
             e.preventDefault();
 
-            var formdata = new FormData();
-            var img = $('#image')[0].files;
-
-            if (img.length > 0) {
-                formdata.append('image', image[0]);
-
-                $.ajax({
-                    url: 'lib/add_product.php',
-                    method: 'POST',
-                    dataType: 'json',
-                    data: formdata,
-                    success: function(res) {
-                        console.log(res);
-                    }
-                });
-            } else {
-                $('#error_msg').text("Please select an image.");
-            }
-        })
-
-
-    })
+            $.ajax({
+                url: 'libs/add_product.php',
+                method: 'POST',
+                data: $('#form_product').serialize(),
+                success: function(res) {
+                    console.log(res);
+                }
+            });
+        });
+    });
 </script>

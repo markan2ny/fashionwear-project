@@ -23,7 +23,7 @@
                   </div>
                   <div class="float-right">
                     <a href="viewall.php">
-                      <p class="mb-0 text-right">Verified Post</p>
+                      <p class="mb-0 text-right">Claimed Item(s)</p>
                     </a>
                     <div class="fluid-container">
                       <h3 class="font-weight-medium text-right mb-0"><?php echo count($verifiedPost); ?></h3>
@@ -31,7 +31,7 @@
                   </div>
                 </div>
                 <p class="text-muted mt-3 mb-0">
-                  <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> Total Verified Post
+                  <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> Total Claimed Item(s)
                 </p>
               </div>
             </div>
@@ -45,7 +45,7 @@
                   </div>
                   <div class="float-right">
                     <a href="approval.php">
-                      <p class="mb-0 text-right">Request Post</p>
+                      <p class="mb-0 text-right">Reserved Item(s)</p>
                     </a>
                     <div class="fluid-container">
                       <h3 class="font-weight-medium text-right mb-0"><?php echo count($requestPost); ?></h3>
@@ -53,7 +53,7 @@
                   </div>
                 </div>
                 <p class="text-muted mt-3 mb-0">
-                  <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Total Request Post
+                  <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Total Reserved Item(s)
                 </p>
               </div>
             </div>
@@ -85,11 +85,11 @@
               <div class="card-body">
                 <div class="clearfix">
                   <div class="float-left">
-                    <i class="mdi mdi-delete text-danger icon-lg"></i>
+                    <i class="mdi mdi-account-location text-success icon-lg"></i>
                   </div>
                   <div class="float-right">
                     <a href="deleted_post.php">
-                      <p class="mb-0 text-right">Deleted Post</p>
+                      <p class="mb-0 text-right">Critical Item(s)</p>
                     </a>
                     <div class="fluid-container">
                       <h3 class="font-weight-medium text-right mb-0"><?php echo count($viewDeleted); ?></h3>
@@ -97,28 +97,15 @@
                   </div>
                 </div>
                 <p class="text-muted mt-3 mb-0">
-                  <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Total Deleted Post
+                  <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Total Critical Item(s)
                 </p>
               </div>
             </div>
           </div>
         </div>
-
-
-
-
       </div>
       <!-- content-wrapper ends -->
-      <!-- partial:partials/_footer.html -->
-      <footer class="footer">
-        <div class="container-fluid clearfix">
-          <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2022
-            Sofia Fashionwear. All rights reserved.</span>
-          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
-            <i class="mdi mdi-heart text-danger"></i>
-          </span>
-        </div>
-      </footer>
+  <?php include_once 'admin_footer.php'; ?>
       <!-- partial -->
     </div>
     <!-- main-panel ends -->
@@ -127,4 +114,4 @@
 </div>
 <!-- container-scroller -->
 
-<?php include_once 'includes/footer.php'?>
+<?php include_once 'includes/footer.php' ?>

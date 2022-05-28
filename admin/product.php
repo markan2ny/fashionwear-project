@@ -3,14 +3,20 @@
 <?php
 include_once('../core/function.php');
 $init = new manageFunction;
-// $fetchAcct = $init->getData("SELECT * FROM products ORDER BY id DESC");
-// var_dump($fetchAcct);
 ?>
+
+<script>
+    $(function() {
+        $('form').submit(function() {
+            alert('aa');
+        });
+    });
+</script>
+
 
 <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <?php include_once('includes/navbar.php'); ?>
-
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
@@ -66,7 +72,3 @@ $init = new manageFunction;
 <!-- container-scroller -->
 
 <?php include_once 'includes/footer.php'; ?>
-
-<script>
-    $('#mytable').dataTable();
-</script>
