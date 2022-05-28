@@ -21,12 +21,6 @@ class manageDatabase {
 			echo $e->getMessage();
 
 		}
-
-
-
 	}
-
-
-
 }
 ?>
