@@ -14,6 +14,7 @@ $init = new manageFunction;
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
+        <?php include_once 'sidebar.php'; ?>
         <!-- partial -->
         <div class="main-panel">
             <div class="content-wrapper">
@@ -43,7 +44,7 @@ $init = new manageFunction;
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
