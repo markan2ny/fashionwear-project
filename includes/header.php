@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>F-Resort | Online Resort Finder</title>
+  <title>Sofia Fashionwear</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="Demo project">
@@ -28,6 +28,5 @@
   <script type="text/javascript" src="assets/js/sweetalert2.js"></script>
   <link rel="stylesheet" type="text/css" href="assets/css/all.css">
   <script type="text/javascript" src="assets/js/moment.min.js"></script>
-
 </head>
 <body>
