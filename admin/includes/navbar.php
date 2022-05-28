@@ -1,4 +1,4 @@
-      <?php 
+      <?php
       include_once('../core/function.php');
       $init = new manageFunction;
 
@@ -154,7 +154,7 @@
                     </div>
                   </div>
                 </a>
-                
+
                 <a class="dropdown-item" href="../logout.php">
                   Sign Out
                 </a>
@@ -180,9 +180,9 @@
           BlockUnblock();
 
           //refrest table every 5sec.
-          setInterval(function(){
-            fetch_request();
-          },5000); 
+          // setInterval(function(){
+          //   fetch_request();
+          // },5000);
 
           function updateData(id, status){
             $.ajax({
@@ -243,7 +243,7 @@
               method:'POST',
               dataType:'text',
               success:function(data){
-                console.log(data);
+                // console.log(data);
                 appendTo.html(data);
               }
 
@@ -320,10 +320,10 @@
 
                     });
                     fetch_request();
-                  } 
+                  }
                   else {
                     $('#appMessage').html('<p class="alert alert-danger">'+data.error+'</p>');
-                    
+
                   }
 
                 }
