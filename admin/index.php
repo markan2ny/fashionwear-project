@@ -1,4 +1,21 @@
 <?php include_once('includes/header.php'); ?>
+
+<?php
+  include_once '../core/mysqli_database.php';
+
+  $init = new database;
+
+  $data = $init->connect()->query("SELECT * FROM users");
+
+  $claimed = $init->connect()->query("SELECT * FROM cart WHERE is_claimed = 1");
+  $approve = $init->connect()->query("SELECT * FROM cart WHERE is_approve = 1 AND is_claimed = 0");
+  $critical = $init->connect()->query("SELECT * FROM products WHERE item_qty <= 10");
+  
+
+
+?>
+
+
 <div class="container-scroller">
   <!-- partial:partials/_navbar.html -->
   <?php include_once('includes/navbar.php'); ?>
@@ -22,11 +39,11 @@
                     <i class="mdi mdi-cube text-danger icon-lg"></i>
                   </div>
                   <div class="float-right">
-                    <a href="viewall.php">
+                    <a href="#">
                       <p class="mb-0 text-right">Claimed Item(s)</p>
                     </a>
                     <div class="fluid-container">
-                      <h3 class="font-weight-medium text-right mb-0"><?php echo count($verifiedPost); ?></h3>
+                      <h3 class="font-weight-medium text-right mb-0"> <?php echo count($claimed->fetch_all());?></h3>
                     </div>
                   </div>
                 </div>
@@ -44,11 +61,11 @@
                     <i class="mdi mdi-receipt text-warning icon-lg"></i>
                   </div>
                   <div class="float-right">
-                    <a href="approval.php">
+                    <a href="#">
                       <p class="mb-0 text-right">Reserved Item(s)</p>
                     </a>
                     <div class="fluid-container">
-                      <h3 class="font-weight-medium text-right mb-0"><?php echo count($requestPost); ?></h3>
+                      <h3 class="font-weight-medium text-right mb-0"><?php echo count($approve->fetch_all());?></h3>
                     </div>
                   </div>
                 </div>
@@ -66,11 +83,11 @@
                     <i class="mdi mdi-account-location text-success icon-lg"></i>
                   </div>
                   <div class="float-right">
-                    <a href="account.php">
+                    <a href="#">
                       <p class="mb-0 text-right">User Account</p>
                     </a>
                     <div class="fluid-container">
-                      <h3 class="font-weight-medium text-right mb-0"><?php echo count($userCount); ?></h3>
+                      <h3 class="font-weight-medium text-right mb-0"><?php echo count($data->fetch_all());?></h3>
                     </div>
                   </div>
                 </div>
@@ -88,11 +105,11 @@
                     <i class="mdi mdi-account-location text-success icon-lg"></i>
                   </div>
                   <div class="float-right">
-                    <a href="deleted_post.php">
+                    <a href="#">
                       <p class="mb-0 text-right">Critical Item(s)</p>
                     </a>
                     <div class="fluid-container">
-                      <h3 class="font-weight-medium text-right mb-0"><?php echo count($viewDeleted); ?></h3>
+                      <h3 class="font-weight-medium text-right mb-0"><?php echo count($critical->fetch_all());?></h3>
                     </div>
                   </div>
                 </div>

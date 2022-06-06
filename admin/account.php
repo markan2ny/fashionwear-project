@@ -4,14 +4,9 @@
 
 
 <?php
-include_once('../core/function.php');
-$init = new manageFunction;
-
-$fetchAcct = $init->getData("SELECT * FROM users ORDER BY user_id DESC");
-
-// var_dump($fetchAcct);
-
-
+include_once '../core/mysqli_database.php';
+$init = new database;
+$users = $init->connect()->query("SELECT * FROM users WHERE status = 0");
 
 ?>
 
@@ -41,15 +36,35 @@ $fetchAcct = $init->getData("SELECT * FROM users ORDER BY user_id DESC");
 									<table class="table table-hover" id="my" cellspacing="0" width="100%" id="mytable">
 										<thead>
 											<tr>
-												<th>#</th>
-												<th>Account ID</th>
+												<th>Name</th>
+												<th>Username</th>
 												<th>Email address</th>
-												<th>Status</th>
 												<th>Action</th>
 											</tr>
 										</thead>
 										<tbody id="tbody">
-											<!-- //HERE -->
+											<?php if($users->num_rows > 0):?>
+												<?php
+													
+														while($user = $users->fetch_object()):
+													?>
+													<tr>
+														<td><?php echo $user->name;?></td>
+														<td><?php echo $user->username;?></td>
+														<td><?php echo $user->email;?></td>
+														<td>
+															<button class="btn btn-sm btn-danger">Delete</button>
+														</td>
+													</tr>
+
+													<?php endwhile;?>
+												<?php else:?>
+													<tr>
+														<td colspan="6">
+															<h1 class="text-muted text-center mt-5">NO DATA FOUND</h1>
+														</td>
+													</tr>
+												<?php endif;?>
 										</tbody>
 									</table>
 								</div>

@@ -4,7 +4,7 @@
 
 include_once '../core/mysqli_database.php';
 $init = new database;
-$cart = $init->connect()->query("SELECT * FROM cart WHERE is_approve = 0");
+$cart = $init->connect()->query("SELECT * FROM cart WHERE is_approve = 1");
 
 ?>
 
@@ -23,20 +23,21 @@ $cart = $init->connect()->query("SELECT * FROM cart WHERE is_approve = 0");
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header bg-dark text-white">
-                                <span>Reservation Request</span>
+                                <span>Reservation List</span>
                             </div>
                             <div class="card-body">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <td>Item Image</td>
+                                            <th>Item Image</th>
                                             <th>Item Name</th>
                                             <th>Item Size</th>
                                             <th>Item Price</th>
                                             <th>Order Qty.</th>
-                                            <th>Customer Name</th>
-                                            <td>Order Total</td>
-                                            <td>Action</td>
+                                            <th>Reservee</th>
+                                            <th>Order Total</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -50,16 +51,21 @@ $cart = $init->connect()->query("SELECT * FROM cart WHERE is_approve = 0");
                                                     <td class="s"><?php echo $c->order_qty; ?></td>
                                                     <td><?php echo $c->reservee; ?></td>
                                                     <td class="text-danger">₱<?php echo $c->order_qty * $c->item_price; ?></td>
+                                                    <td><?php echo $c->is_claimed == 1 ? 'CLAIMED' : 'NOT CLAIM' ?></td>
                                                     <td>
-                                                        <button class="btn btn-sm btn-success btn-approve" id="<?php echo $c->id; ?>" data-id="<?php echo $c->product_id; ?>" data-qty="<?php echo $c->order_qty; ?>">Approve</button>
-                                                        <button class="btn btn-sm btn-danger btn-disapprove" id="<?php echo $c->id?>">Disapprove</button>
+                                                        <?php if ($c->is_claimed == 1) : ?>
+                                                            <button class="btn btn-sm btn-danger remove" id="<?php echo $c->id ?>"><i class="fa-solid fa-trash"></i></button>
+                                                        <?php else : ?>
+                                                            <button class="btn btn-sm btn-success claim" id="<?php echo $c->id; ?>"><i class="fa-solid fa-check"></i></button>
+                                                            <button class="btn btn-sm btn-danger remove" id="<?php echo $c->id; ?>"><i class="fa-solid fa-trash"></i></button>
+                                                        <?php endif; ?>
                                                     </td>
                                                 </tr>
                                             <?php endwhile; ?>
                                         <?php else : ?>
                                             <tr>
                                                 <td colspan="8">
-                                                    <h1 class="text-center text-muted">NO REQUEST FOUND</h1>
+                                                    <h1 class="text-center text-muted">NO RESERVATION LIST FOUND</h1>
                                                 </td>
                                             </tr>
                                         <?php endif; ?>
@@ -102,62 +108,51 @@ $cart = $init->connect()->query("SELECT * FROM cart WHERE is_approve = 0");
 
 <script>
     $(function() {
+        claim();
+        remove();
 
-        approve();
-        disapprove();
-
-        function approve() {
-            $('.btn-approve').click(function(e) {
-
+        function claim() {
+            $('.claim').click(function(e) {
                 e.preventDefault();
 
                 var id = $(this).attr('id');
-                var qty = $(this).data('qty');
-                var prod_id = $(this).data('id');
-
+                
                 $.ajax({
-                    url: 'libs/reservation_deduct.php',
+                    url: 'libs/claim.php',
                     method: 'POST',
-                    data: {
-                        id: id,
-                        qty: qty,
-                        prod_id: prod_id,
-                    },
                     dataType: 'json',
+                    data: {id : id},
                     success: function(res) {
-                        if (res.success) {
-                            alert(res.success);
-                            location.reload();
-                        } else {
-                            alert(res.error);
-                        }
+                        console.log(res);
+                        location.reload();
                     }
                 })
-            })
+
+            });
         }
 
-        function disapprove() {
-            $('.btn-disapprove').click(function(e) {
+        function remove() {
+            $('.remove').click(function(e) {
                 e.preventDefault();
 
                 var id = $(this).attr('id');
 
                 $.ajax({
-                    url: 'libs/disapprove.php',
+                    url: 'libs/remove_claimed.php',
                     method: 'POST',
                     dataType: 'json',
-                    data: {id : id} ,
+                    data: {id : id},
                     success: function(res) {
-                        if(res.success) {
-                            alert(res.success);
-                            location.reload();
-                        } else {
-                            alert(res.error);
-                        }
+                       if(res.success) {
+                           alert(res.success);
+                           location.reload();
+                       } else {
+                           alert(res.error);
+                       }
                     }
                 })
-
             })
         }
+
     })
 </script>

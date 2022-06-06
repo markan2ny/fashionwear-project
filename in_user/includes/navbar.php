@@ -1,19 +1,5 @@
 <?php 
-include_once('../core/function.php');
-$init = new manageFunction;
-$id = $_SESSION['account_id'];
-$receiver_id = $_SESSION['user_id'];
-$data = $init->getSpecific(array(
-  $id
-),
-"SELECT * FROM users WHERE account_id = ?"
-);
 
-$count = $init->getSpecific(array($receiver_id),"SELECT * FROM inbox WHERE receiver_id = ? AND status = 0");
-
-$reservation = $init->getSpecific(array($receiver_id), "SELECT * FROM reservation WHERE receiverID = ? AND isRead = 0");
-
-// var_dump($reservation);
 
 ?>
 <style>
@@ -45,7 +31,7 @@ $reservation = $init->getSpecific(array($receiver_id), "SELECT * FROM reservatio
   }
   .message {
     font-weight: 500;
-    padding -top: 5px;
+    padding-top: 5px;
   }
   
 </style>

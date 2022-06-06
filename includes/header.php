@@ -1,4 +1,13 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+  if(isset($_SESSION['id'])){
+    header('location: pages/');
+  }
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,3 +39,4 @@
   <script type="text/javascript" src="assets/js/moment.min.js"></script>
 </head>
 <body>
+

@@ -50,22 +50,28 @@
         <li class="nav-item">
           <a class="nav-link" href="reservation.php">
           <i class="menu-icon mdi mdi-table"></i>
-            <span class="menu-title">Manage Reservation</span>
+            <span class="menu-title">Reservation Request</span>
           </a>
         </li>
-        <!--        <li class="nav-item">
-          <a class="nav-link" href="pages/tables/basic-table.html">
-            <i class="menu-icon mdi mdi-table"></i>
-            <span class="menu-title">Categories</span>
+        <li class="nav-item">
+          <a class="nav-link" href="reservation_list.php">
+          <i class="menu-icon mdi mdi-table"></i>
+            <span class="menu-title">Reservation List</span>
           </a>
-        </li> -->
+        </li>
+               <li class="nav-item">
+          <a class="nav-link" href="inventory.php">
+            <i class="menu-icon mdi mdi-table"></i>
+            <span class="menu-title">Inventory</span>
+          </a>
+        </li>
         <!--      <li class="nav-item">
           <a class="nav-link" href="pages/icons/font-awesome.html">
             <i class="menu-icon mdi mdi-comment-outline"></i>
             <span class="menu-title">Comments</span>
           </a>
         </li> -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <i class="menu-icon mdi mdi-restart"></i>
               <span class="menu-title">Manage Inventory</span>
@@ -84,6 +90,6 @@
                 </li>
               </ul>
             </div>
-          </li>
+          </li> -->
       </ul>
     </nav>

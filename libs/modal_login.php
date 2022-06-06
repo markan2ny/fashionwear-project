@@ -16,6 +16,7 @@ $result = $login->fetch_object();
 if($password === $result->password) {
 
 	echo json_encode(['success' => 'Login success', 'data' => $result]);
+    
 	$_SESSION['id'] = $result->id;
 	$_SESSION['name'] = $result->name;
 	$_SESSION['email'] = $result->email;

@@ -28,7 +28,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
 
-    <a class="navbar-brand" href="index.php">SF</a>
+    <a class="navbar-brand" href="index.php">
+    <img src="assets/img/logo.png" width="200" alt="">
+      
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -102,35 +105,25 @@
     $(document).on('submit', 'form', function(e) {
       e.preventDefault();
 
-      loader('show');
 
       $.ajax({
         url: 'libs/login.php',
         method: 'POST',
         dataType: 'json',
         data: $(this).serialize(),
-        success: function(data) {
-          if(!data.error) {
-            if(data[0].status != 1) {
-              if(data[0].role == 1) {
-                setTimeout(() => {
-                  window.location = 'admin/';
-                }, 1200);
+        success: function(res) {
+          if(res.success) {
+            alert(res.success);
+              if(res.data.role == 1) {
+                window.location = 'admin/';
               } else {
-                setTimeout(() => {
-                  window.location = 'in_user/in_user.php';
-                }, 1200);
+                window.location = 'pages/';
               }
-            } else {
-              alert('Account has been blocked');
-              loader('hide');
-            }
           } else {
-            alert(data.error)
-            loader('hide');
+            alert(res.error);
           }
         }
-      });
+      })
     });
   });
 </script>

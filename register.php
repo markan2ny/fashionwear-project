@@ -5,55 +5,61 @@
 		height: 100%;
 		background: #ecf0f1;
 	}
+
 	.navbar {
 		background: #f39c12;
 	}
-	.navbar > .navbar-brand {
+
+	.navbar>.navbar-brand {
 		font-weight: bold;
 		font-size: 20px;
 	}
-	.collapse > ul > li:hover {
+
+	.collapse>ul>li:hover {
 		background: #e67e22;
 	}
-	ul > li > a {
+
+	ul>li>a {
 		font-size: 15px;
 		font-weight: bold;
 	}
-
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" href="#">SF</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav m-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.php">About</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Category
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Men</a>
-            <a class="dropdown-item" href="#">Women</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact Us</a>
-        </li>
-      </ul>
-      <div>
-        <a href="login.php">Login</a>
-        <!-- <a href="register.php">Register</a> -->
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<a class="navbar-brand" href="#">
+			<img src="assets/img/logo.png" width="200" alt="">
+
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav m-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.php">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="about.php">About</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Category
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Men</a>
+						<a class="dropdown-item" href="#">Women</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="contact.php">Contact Us</a>
+				</li>
+			</ul>
+			<div>
+				<a href="login.php">Login</a>
+				<!-- <a href="register.php">Register</a> -->
+			</div>
+		</div>
+	</div>
 </nav>
 
 <div class="container">
@@ -65,7 +71,7 @@
 				</div>
 				<div class="card-body">
 					<div id="regMsg"></div>
-					<form  role="form">
+					<form id="form_register">
 						<div class="form-group">
 							<label>Name</label><span class="text-danger">*</span>
 							<input type="text" name="name" id="name" class="form-control" placeholder="Enter Fullname" required>
@@ -103,35 +109,26 @@
 </div>
 
 <script>
-	$(document).ready(function(){
-		$(document).on('submit', 'form', function(e){
+	$(function() {
+
+		$('#form_register').submit(function(e) {
 			e.preventDefault();
 			$.ajax({
-				url:'libs/register.php',
-				method:'POST',
-				dataType:'json',
-				data:$(this).serialize(),
-				success:function(data){
-					if(!data.error){
-						$('#regMsg').html(`${data.success}`);
-						setTimeout(function(){
-							window.location = 'login.php';
-						},3000);
-					}
-					else {
-						Swal.fire({
-							type: 'error',
-							title: 'Oops...',
-							text: 'Something went wrong!',
-							footer: '<a href>Why do I have this issue?</a>'
-						})
+				url: 'libs/register.php',
+				dataType: 'json',
+				method: 'POST',
+				data: $(this).serialize(),
+				success: function(res) {
+					if(res.success) {
+						alert(res.success);
+						window.location = 'login.php';
+					} else {
+						alert(res.error);
 					}
 				}
-			})
-		})
-	})
-
-
+			});
+		});
+	});
 </script>
 
 

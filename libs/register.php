@@ -1,31 +1,25 @@
 <?php
 	session_start();
-	include_once('../core/function.php');
-	$init = new manageFunction;
 
-	$insert = $init->insertData(array(
-		$_POST['name'],
-		$_POST['email'],
-		md5($_POST['password']),
-		time(),
-		$_POST['address'],
-		$_POST['contact'],
-		$_POST['username'],
-		), "INSERT INTO users(name,email,password,account_id,address,contact,username) VALUES(?,?,?,?,?,?,?)"
-	);
+	include_once '../core/mysqli_database.php';
+	$init = new database;
 
 
-	if($insert > 0){
-		echo json_encode(array(
-		'success' => '<p class="alert alert-success">Registration Complete. You will redirect to login in 3 sec.</p>'
-		)
-	);
-	}
-	else {
-		echo json_encode(array(
-			'error' => 'Something wrong'
-		)
-	);
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$password = md5($_POST['password']);
+	$address = $_POST['address'];
+	$contact = $_POST['contact'];
+	$username = $_POST['username'];
+
+
+	$register = $init->connect()->query("INSERT INTO users(name, email, password,address, contact,username) VALUES('$name', '$email', '$password', '$address', '$contact', '$username')");
+
+	if($register) {
+		echo json_encode(['success' => 'You has been registered!']);
+
+	} else { 
+		echo json_encode(['error' => 'Somethis is wrong..']);
 	}
 
 
