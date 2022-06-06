@@ -68,8 +68,8 @@
                             Category
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Men</a>
-                            <a class="dropdown-item" href="#">Women</a>
+                            <a class="dropdown-item" href="men.php">Men</a>
+                            <a class="dropdown-item" href="women.php">Women</a>
                         </div>
                     </li>
                     <li class="nav-item">

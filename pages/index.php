@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id'])) {
-    header('location: ../login.php');
-}
-
-
 include_once '../core/mysqli_database.php';
 $init = new database;
 

@@ -1,9 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
 
-    <a class="navbar-brand" href="<?php echo !isset($_SESSION['id']) ? 'index.php' : 'pages/'; ?>">
-      <img src="assets/img/logo.png" width="200" alt="">
-    </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,8 +18,8 @@
             Category
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="mem_product.php">Men</a>
-            <a class="dropdown-item" href="women_product.php">Women</a>
+            <a class="dropdown-item" href="men.php">Men</a>
+            <a class="dropdown-item" href="women.php">Women</a>
           </div>
         </li>
         <li class="nav-item">
