@@ -10,9 +10,22 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
 
 
 <?php include_once 'header.php'; ?>
+<?php include_once 'carousel.php'; ?>
 
+<style>
 
-<div class="card mb-5">
+  a:hover {
+    text-decoration: none;
+  }
+  a {
+    color: #333;
+  }
+  
+
+</style>
+
+<div class="container">
+  <div class="card mb-5">
     <div class="card-body">
       <h4>Products</h4>
 
@@ -21,14 +34,16 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
 
           <?php while ($product = $products->fetch_object()) : ?>
             <div class="col-lg-4">
-              <a href="single.php?id=<?php echo $product->id;?>">
+              <a href="single.php?id=<?php echo $product->id; ?>">
                 <div class="card">
                   <div class="card-header">
                     <img src="../products/<?php echo $product->item_image; ?>" alt="" class="img-thumbnail">
                   </div>
                   <div class="card-body">
-                    <h4><?php echo $product->item_name;?></h4>
-                    <span><?php echo $product->item_price;?></span>
+                    <h5 style="color: black;"><?php echo $product->item_name; ?></h5>
+                    <span>Size: <?php echo $product->item_size; ?></span>
+                    <br>
+                    <span>Price: ₱<?php echo $product->item_price; ?></span>
                   </div>
                 </div>
               </a>

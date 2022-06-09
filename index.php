@@ -99,7 +99,7 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
                     <img src="products/<?php echo $product->item_image; ?>" alt="" class="img-thumbnail">
                   </div>
                   <div class="card-body">
-                    <h4><?php echo $product->item_name;?></h4>
+                    <h5><?php echo $product->item_name;?></h5>
                     <span><?php echo $product->item_price;?></span>
                   </div>
                 </div>

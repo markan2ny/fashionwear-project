@@ -16,6 +16,9 @@ $p = $product->fetch_object();
 ?>
 <div class="container">
     <div class="card mt-5 mb-5">
+        <div class="card-header">
+            <span>Make Reservation</span>
+        </div>
         <div class="row">
             <div class="col-lg-5">
                 <div style="padding: 20px;">
