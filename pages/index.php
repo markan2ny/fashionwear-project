@@ -51,7 +51,6 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
 
           <?php endwhile; ?>
         </div>
-
       <?php else : ?>
         <h1 class="text-center text-muted mt-5 mb-5">NO DATA</h1>
       <?php endif; ?>

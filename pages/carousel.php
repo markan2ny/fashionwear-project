@@ -6,12 +6,6 @@
                     <b style="font-size: 20px; font-weight: 500;" class="text-muted">Search</b>
                     <form class="form-inline float-right" method="POST">
                         <input class="form-control search_box" type="search" name="search_box" id="search_box" placeholder="Search" aria-label="Search" style="margin-right: 3px;">
-                        <select class="form-control combo_box" name="search_name">
-                            <option selected disabled value="n">Search by</option>
-                            <option value="title">By Resort Name</option>
-                            <option value="Address">By Location</option>
-                            <!-- <option value="price">By Price</option> -->
-                        </select>
                         <button class="btn btn-outline-warning my-2 my-sm-0" name="search-btn" id="search-btn" style="margin-left: 5px;">Search</button>
                     </form>
                 </div>
