@@ -10,54 +10,43 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
 
 ?>
 
+<script>
+  $(function() {
+
+    $('form#form_search').submit(function(e) {
+
+      e.preventDefault();
+
+      var form = $(this).serialize();
+
+      $.ajax({
+        url: 'libs/search.php',
+        method: 'POST',
+        data: form,
+        dataType: 'json',
+        success: function(res) {
+          console.log(res);
+        }
+      })
 
 
 
-<style>
-  @media only screen and (max-width: 767px),
-  only screen and (max-width: 767px) {
-    .btn-search {
-      /*width: 100%;*/
-      margin-left: -5px;
-    }
+    })
 
-    .combo_box {
-      width: 100px;
+  })
+</script>
 
-    }
 
-    .search_box {
-      width: 180px;
-      margin-right: 1px;
-    }
-  }
 
-  .card .card-hover:hover {
-    -webkit-box-shadow: 1px 9px 40px -12px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -1px 9px 40px 12px rgba(0, 0, 0, 0.75);
-    box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
-  }
-
-  .card .card-hover {
-    border: none;
-    background: #f5f6fa;
-  }
-</style>
 <div class="container">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="card mt-3">
         <div class="card-header">
           <b style="font-size: 20px; font-weight: 500;" class="text-muted">Search</b>
-          <form class="form-inline float-right" method="POST">
-            <input class="form-control search_box" type="search" name="search_box" id="search_box" placeholder="Search" aria-label="Search" style="margin-right: 3px;">
-            <select class="form-control combo_box" name="search_name">
-              <option selected disabled value="n">Search by</option>
-              <option value="title">By Resort Name</option>
-              <option value="Address">By Location</option>
-              <!-- <option value="price">By Price</option> -->
-            </select>
-            <button class="btn btn-outline-warning my-2 my-sm-0" name="search-btn" id="search-btn" style="margin-left: 5px;">Search</button>
+          <form class="form-inline float-right" id="form_search">
+            <input class="form-control search_box" type="search" name="search_name" id="search_box" placeholder="Search" aria-label="Search" style="margin-right: 3px;">
+            <button class="btn btn-outline-warning my-2 my-sm-0"  style="margin-left: 5px;">Search</button>
           </form>
         </div>
       </div>
@@ -93,14 +82,14 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
 
           <?php while ($product = $products->fetch_object()) : ?>
             <div class="col-lg-4">
-              <a href="single.php?id=<?php echo $product->id;?>">
+              <a href="single.php?id=<?php echo $product->id; ?>">
                 <div class="card">
                   <div class="card-header">
                     <img src="products/<?php echo $product->item_image; ?>" alt="" class="img-thumbnail">
                   </div>
                   <div class="card-body">
-                    <h5><?php echo $product->item_name;?></h5>
-                    <span><?php echo $product->item_price;?></span>
+                    <h5><?php echo $product->item_name; ?></h5>
+                    <span><?php echo $product->item_price; ?></span>
                   </div>
                 </div>
               </a>

@@ -1,33 +1,24 @@
-<?php 
+<?php
 
-	include_once('../core/function.php');
-	$init = new manageFunction;
+include_once '../core/mysqli_database.php';
+$init = new database;
 
-	$name = $_POST['name'];
-	$search_box = $_POST['search_box'];
-	$output = '';
-	$data = $init->getData("SELECT * FROM image_location WHERE $name LIKE '%$search_box%' AND thumbnail= 1 AND status='verified'");
+$search_name = $_POST['search_name'];
 
-	if($data > 0){
-		
-		foreach($data as $row){
+$search = $init->connect()->query("SELECT * FROM products WHERE item_name LIKE '%$search_name%'");
 
-			$output .= '
-                <div class="card card-hover">
-                  <a href="view.php?id='.$row->account_id.'&&n='.$row->title.'"><img class="card-img-top" src="in_user/uploads/'.$row->image.'" height="180" alt="..."></a>
-                  <div class="card-body">
-                    <small class="text-muted">Sponsored</small>
-                    <h5 style="font-weight: bold;">'.$row->title.'</h5>
-                    <p class="text-muted">'.$row->location.'</p>
-                    <small class="text-muted">Posted by: '.$row->name.'</small>
-                    <br>
-                  </div>
-                </div>
-              ';
+if($search->num_rows > 0) {
+	$data = '';
+	while($s = $search->fetch_object()){
 
-		}
+		// $data .= "<div class='card'>
+		// 	<div class='card-header'>
 
-		echo json_encode(array('output' => $output));
+		// 	</div>
+		// </div>";
+
 	}
 
- ?>
+} else {
+	echo json_encode(['error' => 'NOT FOUND!']);
+}
