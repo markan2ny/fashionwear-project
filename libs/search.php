@@ -17,8 +17,10 @@ if($search->num_rows > 0) {
 		// 	</div>
 		// </div>";
 
-	}
+		$data .= $s->item_name;
 
-} else {
+	}
+	echo json_encode(['data' => $data]);		
+} else {					
 	echo json_encode(['error' => 'NOT FOUND!']);
 }

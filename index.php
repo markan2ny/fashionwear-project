@@ -26,17 +26,16 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
         dataType: 'json',
         success: function(res) {
           console.log(res);
+          window.location.href = 'search.php';
         }
       })
-
-
 
     })
 
   })
 </script>
 
-
+<?php include_once 'search.php';?>
 
 <div class="container">
   <div class="row">
@@ -94,7 +93,6 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
                 </div>
               </a>
             </div>
-
           <?php endwhile; ?>
         </div>
 
