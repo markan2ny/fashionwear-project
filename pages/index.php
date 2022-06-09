@@ -10,6 +10,46 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
 
 
 <?php include_once 'header.php'; ?>
+
+<script>
+  $(function() {
+
+    $('.submit_search').click(function(e) {
+
+      e.preventDefault();
+
+      var form = $('form#form_search').serialize();
+
+      $.ajax({
+        url: '../libs/search_2.php',
+        method: 'POST',
+        data: form,
+        dataType: 'json',
+        success: function(res) {
+         $('#search_body').html(res);
+        }
+      })
+    })
+
+  })
+</script>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="card mt-3">
+        <div class="card-header">
+          <b style="font-size: 20px; font-weight: 500;" class="text-muted">Search</b>
+          <form class="form-inline float-right" id="form_search">
+            <input class="form-control search_box" type="search" name="search_name" id="search_box" placeholder="Search" aria-label="Search" style="margin-right: 3px;">
+            <button class="btn btn-outline-warning my-2 my-sm-0 submit_search" type="button" style="margin-left: 5px;" data-toggle="modal" data-target="#search_modal">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <?php include_once 'carousel.php'; ?>
 
 <style>
@@ -23,7 +63,7 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
   
 
 </style>
-
+<?php include_once 'search.php'; ?>
 <div class="container">
   <div class="card mb-5">
     <div class="card-body">

@@ -13,11 +13,11 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
 <script>
   $(function() {
 
-    $('form#form_search').submit(function(e) {
+    $('.submit_search').click(function(e) {
 
       e.preventDefault();
 
-      var form = $(this).serialize();
+      var form = $('form#form_search').serialize();
 
       $.ajax({
         url: 'libs/search.php',
@@ -25,17 +25,14 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
         data: form,
         dataType: 'json',
         success: function(res) {
-          console.log(res);
-          window.location.href = 'search.php';
+         $('#search_body').html(res);
         }
       })
-
     })
 
   })
 </script>
 
-<?php include_once 'search.php';?>
 
 <div class="container">
   <div class="row">
@@ -45,13 +42,14 @@ $products = $init->connect()->query("SELECT * FROM products ORDER BY id DESC");
           <b style="font-size: 20px; font-weight: 500;" class="text-muted">Search</b>
           <form class="form-inline float-right" id="form_search">
             <input class="form-control search_box" type="search" name="search_name" id="search_box" placeholder="Search" aria-label="Search" style="margin-right: 3px;">
-            <button class="btn btn-outline-warning my-2 my-sm-0"  style="margin-left: 5px;">Search</button>
+            <button class="btn btn-outline-warning my-2 my-sm-0 submit_search" type="button" style="margin-left: 5px;" data-toggle="modal" data-target="#search_modal">Search</button>
           </form>
         </div>
       </div>
     </div>
   </div>
 
+  <?php include_once 'search.php'; ?>
 
   <div id="carouselExampleControls" class="carousel slide mt-3 mb-3" data-ride="carousel">
     <div class="carousel-inner">

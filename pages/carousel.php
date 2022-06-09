@@ -1,18 +1,3 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="card mt-3">
-                <div class="card-header">
-                    <b style="font-size: 20px; font-weight: 500;" class="text-muted">Search</b>
-                    <form class="form-inline float-right" method="POST">
-                        <input class="form-control search_box" type="search" name="search_box" id="search_box" placeholder="Search" aria-label="Search" style="margin-right: 3px;">
-                        <button class="btn btn-outline-warning my-2 my-sm-0" name="search-btn" id="search-btn" style="margin-left: 5px;">Search</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div id="carouselExampleControls" class="carousel slide mt-3 mb-3" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">

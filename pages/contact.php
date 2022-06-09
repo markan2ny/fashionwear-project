@@ -102,35 +102,57 @@ $count = $u->fetch_object();
         </div>
     </nav>
 
-    <style>
-        p {
-            font-size: 30px;
-            text-align: justify;
-        }
-    </style>
-
-
     <div class="container">
-        <div class="text-center" style="margin: 60px;">
-            <h1 style="color: #333333;" class="font-weight-bold">ABOUT US</h1>
 
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <span>CONTACT US</span>
+                    </div>
+                    <div class="card-body">
+                        <form id="contact_form">
+                            <div class="form-group mb-3">
+                                <label>Name</label>
+                                <input type="text" class="form-control" name="name" required placeholder="Enter Name">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label>Email</label>
+                                <input type="email" class="form-control" required placeholder="Enter Email address">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label>Message</label>
+                                <textarea name="" id="" cols="30" rows="10" class="form-control">
+
+                                </textarea>
+                            </div>
+                            <button class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mt-5 text-center">
-            <p>Sofia Fashionwear is a Philippin store located in the city of Malolos Bulacan wherein</p>
-            <p>there is an ukay-ukay apparel such as clothes, shoes, toys are sold at cheap prices.</p>
-            <p>Having an online thrift store is a nice choice to have an online store sells items and brings profits
-                practically since the launch.</p>
-            <p>The term ukay-ukay is derived from the Filipino verb "Hukay", which means "to dig" or "to sift through".</p>
-            <p>We hope you enjoy the treasure we've found as you visit our website. At Sofia Fashionwear website we've done the digging for you.</p>
-        </div>
+
+
     </div>
 
 
-    <script src="../assets/js/all.min.js"></script>
-    <!-- jquery ajax -->
-    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
-    <!-- jquery loader -->
-    <script type="text/javascript" src="../assets/js/loader.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 </body>
 
 </html>
+
+
+<script>
+    $(function() {
+
+        $('form#contact_form').submit(function(e) {
+            e.preventDefault();
+
+            alert('Thank you for sending us a message.')
+
+            $(this)[0].reset();
+        })
+
+    })
+</script>

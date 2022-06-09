@@ -14,7 +14,7 @@ if ($search->num_rows > 0) {
 		$data .= '<div class="col-lg-4"><a href="single.php?id='.$s->id.'">
 			<div class="card">
 				<div class="card-header">
-					<img src="products/' . $s->item_image . '" alt="" class="img-thumbnail">
+					<img src="../products/' . $s->item_image . '" alt="" class="img-thumbnail">
 				</div>
 				<div class="card-body">
 					<h1>' . $s->item_name . '</h1>
