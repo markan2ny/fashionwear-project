@@ -53,7 +53,7 @@ $users = $init->connect()->query("SELECT * FROM users WHERE status = 0");
 														<td><?php echo $user->username;?></td>
 														<td><?php echo $user->email;?></td>
 														<td>
-															<button class="btn btn-sm btn-danger">Delete</button>
+															<button class="btn btn-sm btn-danger delete" id="<?php echo $user->id;?>">Delete</button>
 														</td>
 													</tr>
 
@@ -82,3 +82,30 @@ $users = $init->connect()->query("SELECT * FROM users WHERE status = 0");
 </div>
 <!-- container-scroller -->
 <?php include_once 'includes/footer.php'; ?>
+
+<script>
+
+	$(function() {
+
+		$('.delete').click(function(res) {
+			var id = $(this).attr('id');
+
+			$.ajax({
+				url: 'libs/remove_acct.php',
+				method: 'POST',
+				data: {id : id},
+				dataType: 'json',
+				success: function(res) {
+					console.log(res);
+					if(res.success) {
+						alert(res.success);
+						location.reload();
+					} else {
+						alert(res.error);
+					}
+				}
+			})
+		});
+	});
+
+</script>
