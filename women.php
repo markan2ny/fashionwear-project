@@ -84,7 +84,7 @@
         <?php if ($cat->num_rows > 0) : ?>
             <div class="card mt-5">
                 <div class="card-header">
-                    <span>MEN</span>
+                    <span>WOMEN</span>
                 </div>
                 <div class="card-body">
 
